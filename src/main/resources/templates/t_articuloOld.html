@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Detalles del Artículo</title>
+</head>
+<body>
+    <div th:if="${#lists.isEmpty(articulo)}">
+        <p>No se encontraron artículos con ese nombre.</p>
+    </div>
+    <div th:each="art : ${articulo}">
+        <h1 th:text="${art.nombre}">Nombre del Artículo</h1>
+        <div th:if="${!art.imagenes.isEmpty()}">
+            <img th:src="@{${art.imagenes[0].url}}" alt="Imagen del artículo" style="max-width: 400px; max-height: 400px;"/>
+        </div>
+        <p>Precio: <span th:text="${art.precio}"></span>€</p>
+        <p>Descripción: <span th:text="${art.descripcion}"></span></p>
+        <div th:each="val : ${articulo.valoraciones}">
+        	<p>Valoracion: <span th:text="${val.comentario}"></span></p>
+        	<p>Estrellas: <span th:text="${val.estrellas}"></span></p>        
+        </div>
+    </div>
+</body>
+</html>
