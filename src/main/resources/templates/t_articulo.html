@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda de Tecnología</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Enlace a tu hoja de estilos CSS -->
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -70,9 +70,42 @@
             color: white;
             text-align: center;
             padding: 10px;
-            position: fixed;
             bottom: 0;
             width: 100%;
+            margin-top: 20px;
+        }
+        .gallery {
+            display: flex;
+        }
+        .gallery .main-image img {
+            max-width: 400px;
+            max-height: 400px;
+        }
+        .gallery .thumbnails {
+            display: flex;
+            flex-direction: column;
+            margin-right: 10px;
+        }
+        .gallery .thumbnails img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .gallery .thumbnails img:last-child {
+            margin-bottom: 0;
+        }
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+        }
+        .product-details p {
+            margin: 10px 0;
+        }
+        .ratings {
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -93,11 +126,11 @@
         </div>
         
         <div class="search-bar">
-		    <form action="/buscador" method="GET">
-		        <input type="text" name="cadena" placeholder="Buscar productos...">
-		        <button type="submit">Buscar</button>
-		    </form>
-		</div>
+            <form action="/buscador" method="GET">
+                <input type="text" name="cadena" placeholder="Buscar productos...">
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
         
         <div class="user-options">
             <a href="login.html">Iniciar Sesión</a>
@@ -107,35 +140,48 @@
     </header>
     <nav>
         <a href="/">Inicio</a>
-        <a href="/buscador">Articulos</a>
-        <a href="/imagenes">Imagenes</a>
+        <a href="/buscador">Artículos</a>
+        <a href="/imagenes">Imágenes</a>
         <a href="/valoraciones">Valoraciones</a>
     </nav>
     <main>
         <h1>Bienvenido a Electronic Game</h1>
         <p>Encuentra los mejores productos tecnológicos a los mejores precios.</p>
-        <!-- Aquí puedes agregar más contenido relevante, como productos destacados, promociones, etc. -->
-            <div th:if="${#lists.isEmpty(articulo)}">
-        <p>No se encontraron artículos con ese nombre.</p>
-    </div>
-    <div th:each="art : ${articulo}">
-        <h1 th:text="${art.nombre}">Nombre del Artículo</h1>
-        <div th:if="${!art.imagenes.isEmpty()}">
-            <img th:src="@{${art.imagenes[0].url}}" alt="Imagen del artículo" style="max-width: 400px; max-height: 400px;"/>
+        <div th:if="${#lists.isEmpty(articulo)}">
+            <p>No se encontraron artículos con ese nombre.</p>
         </div>
-        <p>Precio: <span th:text="${art.precio}"></span>€</p>
-        <p>Descripción: <span th:text="${art.descripcion}"></span></p>
-        <p>Valoraciones</p>
-        <div th:each="val : ${articulo.valoraciones}">
-        	<p><span th:text="${val.comentario}"></span></p>
-        	<p>Estrellas: <span th:text="${val.estrellas}"></span></p>        
+        <div th:each="art : ${articulo}">
+            <h1 th:text="${art.nombre}">Nombre del Artículo</h1>
+            <div class="gallery">
+                <div class="thumbnails" id="thumbnails">
+                    <div th:each="img, iterStat : ${art.imagenes}">
+                        <img th:src="@{${img.url}}" th:alt="'Imagen ' + ${iterStat.index + 1}" th:onclick="|changeImage('@{${img.url}}')|" />
+                    </div>
+                </div>
+                <div class="main-image">
+                    <img th:src="@{${art.imagenes[0].url}}" alt="Imagen del artículo principal" id="mainImage" />
+                </div>
+                <div class="product-details">
+                    <p>Precio: <span th:text="${art.precio}"></span>€</p>
+                    <p>Descripción: <span th:text="${art.descripcion}"></span></p>
+                </div>
+            </div>
+            <div class="ratings">
+                <p>Valoraciones</p>
+                <div th:each="val : ${art.valoraciones}">
+                    <p><span th:text="${val.comentario}"></span></p>
+                    <p>Estrellas: <span th:text="${val.estrellas}"></span></p>
+                </div>
+            </div>
         </div>
-    </div>
-        
-
     </main>
     <footer>
         <p>&copy; 2024 Tienda de Tecnología. Todos los derechos reservados.</p>
     </footer>
+    <script>
+        function changeImage(url) {
+            document.getElementById('mainImage').src = url;
+        }
+    </script>
 </body>
 </html>
