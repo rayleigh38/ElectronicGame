@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscador</title>
+    <title>Tienda de Tecnología</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
@@ -13,20 +13,7 @@
         <h1>Bienvenido a Electronic Game</h1>
         <p>Encuentra los mejores productos tecnológicos a los mejores precios.</p>
         <!-- Aquí puedes agregar más contenido relevante, como productos destacados, promociones, etc. -->
-		<div class="grid-container">
-			<div th:each="articulo : ${listArticulo}" >
-			    <a th:href="@{${'/articulo/' + articulo.id}}" class="articulo-link">
-			        <div th:if="${!articulo.imagenes.isEmpty()}">
-			            <img th:src="@{${articulo.imagenes[0].url}}" alt="Imagen del artículo" style="max-width: 200px; max-height: 200px;"/>
-			        </div>
-			        <p><span th:text="${articulo.nombre}"></span></p>
-			        <p><span th:text="${articulo.precio}"></span>€</p>
-			        <p>Valoración media: <span th:text="${articulo.mediaValoraciones}"></span></p>
-			    </a>
-			</div>
-		</div>
 
-		
     </main>
     <th:block th:replace="fragments/footer :: footer"></th:block>
 </body>

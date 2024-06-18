@@ -16,7 +16,6 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="ARTICULO")
-@NamedQuery(name = "Articulo.findAll",query="SELECT a FROM Articulo a")
 public class Articulo {
 
 	@Id

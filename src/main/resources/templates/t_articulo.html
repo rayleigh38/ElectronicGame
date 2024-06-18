@@ -3,147 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda de Tecnología</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #333;
-            color: white;
-        }
-        .logo img {
-            height: 50px;
-        }
-        .categories, .search-bar, .user-options {
-            display: flex;
-            align-items: center;
-        }
-        .categories select {
-            padding: 5px;
-            margin-right: 20px;
-        }
-        .search-bar input {
-            padding: 5px;
-            margin-right: 10px;
-        }
-        .search-bar button {
-            padding: 5px 10px;
-            background-color: #ff6600;
-            border: none;
-            color: white;
-            cursor: pointer;
-        }
-        .user-options a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-        }
-        .user-options a:hover {
-            text-decoration: underline;
-        }
-        nav {
-            background-color: #444;
-            padding: 10px 20px;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-right: 20px;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        main {
-            padding: 20px;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            bottom: 0;
-            width: 100%;
-            margin-top: 20px;
-        }
-        .gallery {
-            display: flex;
-        }
-        .gallery .main-image img {
-            max-width: 400px;
-            max-height: 400px;
-        }
-        .gallery .thumbnails {
-            display: flex;
-            flex-direction: column;
-            margin-right: 10px;
-        }
-        .gallery .thumbnails img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            margin-bottom: 10px;
-            cursor: pointer;
-        }
-        .gallery .thumbnails img:last-child {
-            margin-bottom: 0;
-        }
-        .product-details {
-            display: flex;
-            flex-direction: column;
-            margin-left: 20px;
-        }
-        .product-details p {
-            margin: 10px 0;
-        }
-        .ratings {
-            margin-top: 20px;
-        }
-    </style>
+    <title>Articulo</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="/"><img src="/images/logo.png" alt="Logo de la Tienda"></a>
-        </div>
-        <div class="categories">
-            <select name="categories" id="categories">
-                <option value="all">Todas las Categorías</option>
-                <option value="computers">Ordenadores</option>
-                <option value="components">Componentes</option>
-                <option value="peripherals">Periféricos</option>
-                <option value="smartphones">Smartphones</option>
-                <option value="gaming">Gaming</option>
-            </select>
-        </div>
-        
-        <div class="search-bar">
-            <form action="/buscador" method="GET">
-                <input type="text" name="cadena" placeholder="Buscar productos...">
-                <button type="submit">Buscar</button>
-            </form>
-        </div>
-        
-        <div class="user-options">
-            <a href="login.html">Iniciar Sesión</a>
-            <a href="register.html">Registrarse</a>
-            <a href="cart.html">Carrito</a>
-        </div>
-    </header>
-    <nav>
-        <a href="/">Inicio</a>
-        <a href="/buscador">Artículos</a>
-        <a href="/imagenes">Imágenes</a>
-        <a href="/valoraciones">Valoraciones</a>
-    </nav>
+    <th:block th:replace="fragments/header :: header"></th:block>
+    <th:block th:replace="fragments/header :: nav"></th:block>
     <main>
         <h1>Bienvenido a Electronic Game</h1>
         <p>Encuentra los mejores productos tecnológicos a los mejores precios.</p>
@@ -175,9 +40,7 @@
             </div>
         </div>
     </main>
-    <footer>
-        <p>&copy; 2024 Tienda de Tecnología. Todos los derechos reservados.</p>
-    </footer>
+    <th:block th:replace="fragments/footer :: footer"></th:block>
     <script>
         function changeImage(url) {
             document.getElementById('mainImage').src = url;

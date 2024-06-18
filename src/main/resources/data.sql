@@ -31,3 +31,7 @@ INSERT INTO VALORACION (articulo_id, comentario, estrellas) VALUES (8,'Primer Co
 INSERT INTO VALORACION (articulo_id, comentario, estrellas) VALUES (8,'Segundo Comentario Disgaea 7 NSW',5);
 INSERT INTO VALORACION (articulo_id, comentario, estrellas) VALUES (7,'Primer Comentario Disgaea 7 PS5',5);
 INSERT INTO VALORACION (articulo_id, comentario, estrellas) VALUES (7,'Segundo Comentario Disgaea 7 PS5',5);
+INSERT INTO IMAGEN (articulo_id, url) VALUES (8,'https://m.media-amazon.com/images/I/71PJPNCQE3L._AC_SL1500_.jpg');
+INSERT INTO IMAGEN (articulo_id, url) VALUES (8,'https://m.media-amazon.com/images/I/71FO8tlrVtL._AC_SL1500_.jpg');
+INSERT INTO IMAGEN (articulo_id, url) VALUES (8,'https://m.media-amazon.com/images/I/71AMY8nNu-L._AC_SL1500_.jpg');
+INSERT INTO USUARIO (username, password, email, enabled) VALUES ('usuario','usuario','usuario@usario.com',1);

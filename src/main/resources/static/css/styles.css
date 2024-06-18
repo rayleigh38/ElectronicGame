@@ -1,0 +1,112 @@
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .articulo-link {
+        	text-decoration: none;
+        	color: inherit; /* Mantener el color del texto original */
+        	display: block; /* Hacer que el enlace ocupe todo el espacio del div */
+    	}
+        .logo img {
+            height: 50px;
+        }
+        .categories, .search-bar, .user-options {
+            display: flex;
+            align-items: center;
+        }
+        .categories select {
+            padding: 5px;
+            margin-right: 20px;
+        }
+        .search-bar input {
+            padding: 5px;
+            margin-right: 10px;
+        }
+        .search-bar button {
+            padding: 5px 10px;
+            background-color: #ff6600;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        .user-options a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        .user-options a:hover {
+            text-decoration: underline;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            bottom: 0;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .gallery {
+            display: flex;
+        }
+        .gallery .main-image img {
+            max-width: 400px;
+            max-height: 400px;
+        }
+        .gallery .thumbnails {
+            display: flex;
+            flex-direction: column;
+            margin-right: 10px;
+        }
+        .gallery .thumbnails img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .gallery .thumbnails img:last-child {
+            margin-bottom: 0;
+        }
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+        }
+        .product-details p {
+            margin: 10px 0;
+        }
+        .ratings {
+            margin-top: 20px;
+        }
