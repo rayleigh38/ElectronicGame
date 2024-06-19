@@ -32,15 +32,17 @@ public class ServicioArticulo implements IServicioArticulo{
     private ValoracionRepository valoracionRepository;
 
 	@Override
+	//Metodo buscador que recibe un nombre de articulo devuelve una lista con los articulos que contienen ese nombre
 	public List<Articulo> buscador(String nombreArticulo) throws AdminException {
 		log.info("[buscador]");
-		log.debug("[nombreDepartamento:"+nombreArticulo+"]");
+		log.debug("[nombreArticulo: "+nombreArticulo+"]");
 		
 		List<Articulo> articulos = new ArrayList<Articulo>();
 		try {
 			if(nombreArticulo == null|| nombreArticulo.trim().isEmpty()) {
 				nombreArticulo="";
 			}
+			
 			articulos = repository.findByNameLike(nombreArticulo);
 			
 		}catch(Exception e) {

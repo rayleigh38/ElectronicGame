@@ -26,11 +26,12 @@ public class BuscadorArticuloController {
 	IServicioArticulo servicio;
 	
 	@GetMapping
+	//Clase para buscar los articulos por su nombre
 	public String buscarArticulo(Model model,@RequestParam(value= "cadena", required = false) String cadena) throws Exception{
 		log.info("[buscador]");
-		log.debug("[cadena:"+cadena+"]");
+		log.debug("[nombreArticulo:"+cadena+"]");
 		List<Articulo> articulos = servicio.buscador(cadena);
-		 // Calcular la media de valoraciones para cada artículo
+		// Calcula la media de valoraciones de cada artículo
         for (Articulo articulo : articulos) {
             double sumaValoraciones = 0;
             int totalValoraciones = 0;
@@ -39,8 +40,9 @@ public class BuscadorArticuloController {
                 totalValoraciones++;
             }
             double mediaValoraciones = totalValoraciones > 0 ? sumaValoraciones / totalValoraciones : 0;
+            //Redondear la media para dejarla en un solo decimal
             mediaValoraciones = new BigDecimal(mediaValoraciones).setScale(1, RoundingMode.HALF_UP).doubleValue();
-            articulo.setMediaValoraciones(mediaValoraciones); // Método para establecer la media de valoraciones en el artículo
+            articulo.setMediaValoraciones(mediaValoraciones);
         }
 		
 		model.addAttribute("listArticulo", articulos);

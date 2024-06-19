@@ -13,10 +13,9 @@ import com.electronicGame.entities.Articulo;
 public interface ArticuloRepository extends JpaRepository<Articulo, Integer>{
 	
 	Logger logger = LoggerFactory.getLogger(ArticuloRepository.class);
-
-	@Query("SELECT a FROM Articulo a WHERE upper(a.nombre) LIKE upper(concat('%',:nombre,'%'))")
-	//@Query(value = "SELECT * FROM ARTICULO WHERE UPPER(ARTICULO.NOMBRE) LIKE UPPER(CONCAT('%', :nombre ,'%'))", nativeQuery = true)
-	List<Articulo> findByNameLike(@Param("nombre")String nombre);
-	Articulo findByNombre(String nombre);
+	//Consulta personalizada para buscar los articulos que en el campo nombre de la tabla Articulo
+	//contienen la cadena buscada
+	@Query("SELECT a FROM Articulo a WHERE upper(a.nombre) LIKE upper(concat('%',:cadena,'%'))")
+	List<Articulo> findByNameLike(@Param("cadena")String cadena);
 	
 }

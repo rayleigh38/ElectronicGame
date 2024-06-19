@@ -17,37 +17,33 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-    <th:block th:replace="fragments/header :: header"></th:block>
-    <th:block th:replace="fragments/header :: nav"></th:block>
-    <main>
-        <h1>Bienvenido a Electronic Game</h1>
-        <p>Encuentra los mejores productos tecnológicos a los mejores precios.</p>
-        <!-- Aquí puedes agregar más contenido relevante, como productos destacados, promociones, etc. -->
-        
-            <h1>Lista de Imágenes</h1>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Imagen</th>
-                <th>ID Artículo</th>
-                <th>Nombre Artículo</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="imagen : ${imagenes}">
-                <td th:text="${imagen.id}"></td>
-                <td>
-                    <img th:src="${imagen.url}" alt="Imagen" style="max-width: 100px; max-height: 100px;"/>
-                </td>
-                <td th:text="${imagen.articulo.id}"></td>
-                <td th:text="${imagen.articulo.nombre}"></td>
-            </tr>
-        </tbody>
-    </table>
+    <th:block th:replace="~{fragments/header :: header}"></th:block>
+    <th:block th:replace="~{fragments/header :: nav}"></th:block>
+    <main>      
+	    <h1>Lista de Imágenes</h1>
+	    <table border="1">
+	        <thead>
+	            <tr>
+	                <th>ID</th>
+	                <th>Imagen</th>
+	                <th>ID Artículo</th>
+	                <th>Nombre Artículo</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	            <tr th:each="imagen : ${imagenes}">
+	                <td th:text="${imagen.id}"></td>
+	                <td>
+	                    <img th:src="${imagen.url}" alt="Imagen" style="max-width: 100px; max-height: 100px;"/>
+	                </td>
+	                <td th:text="${imagen.articulo.id}"></td>
+	                <td th:text="${imagen.articulo.nombre}"></td>
+	            </tr>
+	        </tbody>
+	    </table>
 
     </main>
-    <th:block th:replace="fragments/footer :: footer"></th:block>
+    <th:block th:replace="~{fragments/footer :: footer}"></th:block>
 </body>
 </html>
 

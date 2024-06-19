@@ -44,7 +44,7 @@ public class Articulo {
     private List<Imagen> imagenes = new ArrayList<>();
 	@OneToMany(mappedBy = "articulo", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Valoracion> valoraciones = new ArrayList<>();
-	 // Campo transitorio para la media de valoraciones
+	// No se guarda en la base de datos, es un campo para sacar la valoracion media del articulo
     private transient double mediaValoraciones;
 	
 	public int getId() {

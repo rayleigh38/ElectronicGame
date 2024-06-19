@@ -3,21 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Articulo</title>
+    <title>Artículo</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-    <th:block th:replace="fragments/header :: header"></th:block>
-    <th:block th:replace="fragments/header :: nav"></th:block>
+    <th:block th:replace="~{fragments/header :: header}"></th:block>
+    <th:block th:replace="~{fragments/header :: nav}"></th:block>
     <main>
-        <h1>Bienvenido a Electronic Game</h1>
-        <p>Encuentra los mejores productos tecnológicos a los mejores precios.</p>
-        <div th:if="${#lists.isEmpty(articulo)}">
-            <p>No se encontraron artículos con ese nombre.</p>
-        </div>
-        <div th:each="art : ${articulo}">
+        <div th:with="art=${articulo}">
             <h1 th:text="${art.nombre}">Nombre del Artículo</h1>
-            <div class="gallery">
+            <div class="gallery" th:if="${!art.imagenes.isEmpty()}">
                 <div class="thumbnails" id="thumbnails">
                     <div th:each="img, iterStat : ${art.imagenes}">
                         <img th:src="@{${img.url}}" th:alt="'Imagen ' + ${iterStat.index + 1}" th:onclick="|changeImage('@{${img.url}}')|" />
@@ -26,10 +21,10 @@
                 <div class="main-image">
                     <img th:src="@{${art.imagenes[0].url}}" alt="Imagen del artículo principal" id="mainImage" />
                 </div>
-                <div class="product-details">
-                    <p>Precio: <span th:text="${art.precio}"></span>€</p>
-                    <p>Descripción: <span th:text="${art.descripcion}"></span></p>
-                </div>
+            </div>
+            <div class="product-details">
+                <p>Precio: <span th:text="${art.precio}"></span>€</p>
+                <p>Descripción: <span th:text="${art.descripcion}"></span></p>
             </div>
             <div class="ratings">
                 <p>Valoraciones</p>
@@ -40,7 +35,8 @@
             </div>
         </div>
     </main>
-    <th:block th:replace="fragments/footer :: footer"></th:block>
+    <th:block th:replace="~{fragments/footer :: footer}"></th:block>
+    
     <script>
         function changeImage(url) {
             document.getElementById('mainImage').src = url;

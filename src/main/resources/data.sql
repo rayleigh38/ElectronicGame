@@ -1,6 +1,6 @@
 INSERT INTO ARTICULO (nombre, codigo, seccion, categoria, subcategoria, precio, descripcion, stock, vendidos) VALUES ('PS5', 'PS5', 'Consolas y Videojuegos', 'Consolas', 'PS5', 550, 'Consola PS5', 5, 2);
-INSERT INTO ARTICULO (nombre, codigo, seccion, categoria, subcategoria, precio, descripcion, stock, vendidos) VALUES ('NSW', 'NSW', 'Consolas y Videojuegos', 'Consolas', 'NSW', 350, 'Consola NSW', 5, 3);
-INSERT INTO ARTICULO (nombre, codigo, seccion, categoria, subcategoria, precio, descripcion, stock, vendidos) VALUES ('XBX', 'XBX', 'Consolas y Videojuegos', 'Consolas', 'XBX', 550, 'Consola XBX', 3, 1);
+INSERT INTO ARTICULO (nombre, codigo, seccion, categoria, subcategoria, precio, descripcion, stock, vendidos) VALUES ('Nintendo Switch', 'NSW', 'Consolas y Videojuegos', 'Consolas', 'NSW', 350, 'Consola NSW', 5, 3);
+INSERT INTO ARTICULO (nombre, codigo, seccion, categoria, subcategoria, precio, descripcion, stock, vendidos) VALUES ('Xbox Series X', 'XBX', 'Consolas y Videojuegos', 'Consolas', 'XBX', 550, 'Consola XBX', 3, 1);
 INSERT INTO IMAGEN (articulo_id, url) VALUES (1,'https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/202311/16/00194481001017____4__640x640.jpg');
 INSERT INTO IMAGEN (articulo_id, url) VALUES (2,'https://m.media-amazon.com/images/I/71eVf1+jn6L._AC_UF894,1000_QL80_.jpg');
 INSERT INTO IMAGEN (articulo_id, url) VALUES (1,'https://media.direct.playstation.com/is/image/psdglobal/PS5-Slim-Hero-4');
@@ -34,4 +34,5 @@ INSERT INTO VALORACION (articulo_id, comentario, estrellas) VALUES (7,'Segundo C
 INSERT INTO IMAGEN (articulo_id, url) VALUES (8,'https://m.media-amazon.com/images/I/71PJPNCQE3L._AC_SL1500_.jpg');
 INSERT INTO IMAGEN (articulo_id, url) VALUES (8,'https://m.media-amazon.com/images/I/71FO8tlrVtL._AC_SL1500_.jpg');
 INSERT INTO IMAGEN (articulo_id, url) VALUES (8,'https://m.media-amazon.com/images/I/71AMY8nNu-L._AC_SL1500_.jpg');
+INSERT INTO USUARIO (username, password, email, enabled) VALUES ('admin','admin','admin@admin.com',1);
 INSERT INTO USUARIO (username, password, email, enabled) VALUES ('usuario','usuario','usuario@usario.com',1);
