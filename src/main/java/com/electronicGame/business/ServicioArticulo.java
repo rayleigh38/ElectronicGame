@@ -32,7 +32,8 @@ public class ServicioArticulo implements IServicioArticulo{
     private ValoracionRepository valoracionRepository;
 
 	@Override
-	//Metodo buscador que recibe un nombre de articulo devuelve una lista con los articulos que contienen ese nombre
+	//Metodo buscador que recibe una cadena con el nombre o parte del nombre de un articulo 
+	//y devuelve una lista con los articulos que contienen esa cadena
 	public List<Articulo> buscador(String nombreArticulo) throws AdminException {
 		log.info("[buscador]");
 		log.debug("[nombreArticulo: "+nombreArticulo+"]");
@@ -53,6 +54,8 @@ public class ServicioArticulo implements IServicioArticulo{
 	}
 	
 	public Optional<Imagen> getImagenArticulo(int articuloId) {
+		log.info("[getImagenArticulo]");
+		log.debug("[idArticulo: " +articuloId +"]");
         return imagenRepository.findByArticuloId(articuloId).stream().findFirst();
     }
 
@@ -62,6 +65,7 @@ public class ServicioArticulo implements IServicioArticulo{
 	}
 	
 	@Override
+	//Metodo que obtiene un articulo por su id
 	public Articulo getArticulo(Integer id) throws AdminException {
 		return repository.findById(id).get();
 	}

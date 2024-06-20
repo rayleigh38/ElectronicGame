@@ -28,7 +28,7 @@ public class BuscadorArticuloController {
 	@GetMapping
 	//Clase para buscar los articulos por su nombre
 	public String buscarArticulo(Model model,@RequestParam(value= "cadena", required = false) String cadena) throws Exception{
-		log.info("[buscador]");
+		log.info("[buscarArticulo]");
 		log.debug("[nombreArticulo:"+cadena+"]");
 		List<Articulo> articulos = servicio.buscador(cadena);
 		// Calcula la media de valoraciones de cada artículo

@@ -12,6 +12,21 @@
     <main>
         <h1>Bienvenido a Electronic Game</h1>
         <p>Encuentra los mejores productos tecnológicos a los mejores precios.</p>
+        
+        <h2>Mejor Valorados</h2>
+        <div class="grid-container">
+			<div th:each="articulo : ${valorados}" >
+			    <a th:href="@{${'/articulo/' + articulo.id}}" class="articulo-link">
+			        <div th:if="${!articulo.imagenes.isEmpty()}">
+			            <img th:src="@{${articulo.imagenes[0].url}}" alt="Imagen del artículo" style="max-width: 200px; max-height: 200px;"/>
+			        </div>
+			        <p><span th:text="${articulo.nombre}"></span></p>
+			        <p><span th:text="${articulo.precio}"></span>€</p>
+			        <p>Valoración media: <span th:text="${articulo.mediaValoraciones != 0.0 ? articulo.mediaValoraciones : 'N/A'}"></span></p>
+			    </a>
+			</div>
+		</div>
+
 
     </main>
     <th:block th:replace="~{fragments/footer :: footer}"></th:block>

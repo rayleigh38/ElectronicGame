@@ -27,15 +27,12 @@ public class ArticuloController {
     public String mostrarArticulo(@PathVariable("id") Integer id, Model model) throws AdminException {
     	log.info("mostrarArticulo");
     	log.debug("id:"+id);
-        // Aquí podrías implementar la lógica para obtener los datos del artículo con el nombre proporcionado
-        // Supongamos que ya tienes la lógica para obtener los datos y los has almacenado en un objeto llamado 'articulo'
-    	
+    	//Obtengo el articulo por su id
     	Articulo articulo =servicio.getArticulo(id);
 
-        // Agregar los datos del artículo al modelo para que puedan ser renderizados en la plantilla
+        // Agregar los datos del artículo al modelo
         model.addAttribute("articulo", articulo);
         
-        // Devolver el nombre de la plantilla que deseas renderizar
         return "t_articulo";
     }
 	

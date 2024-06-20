@@ -18,7 +18,7 @@
 			        </div>
 			        <p><span th:text="${articulo.nombre}"></span></p>
 			        <p><span th:text="${articulo.precio}"></span>€</p>
-			        <p>Valoración media: <span th:text="${articulo.mediaValoraciones}"></span></p>
+			        <p>Valoración media: <span th:text="${articulo.mediaValoraciones != 0.0 ? articulo.mediaValoraciones : 'N/A'}"></span></p>
 			    </a>
 			</div>
 		</div>
