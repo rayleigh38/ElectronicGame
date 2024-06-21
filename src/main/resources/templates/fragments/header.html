@@ -11,13 +11,13 @@
             <a href="/"><img src="/images/logo.png" alt="Logo de la Tienda"></a>
         </div>
         <div class="categories">
-            <select name="categories" id="categories">
-                <option value="all">Todas las Categorías</option>
-                <option value="computers">Ordenadores</option>
-                <option value="components">Componentes</option>
-                <option value="peripherals">Periféricos</option>
-                <option value="smartphones">Smartphones</option>
-                <option value="gaming">Gaming</option>
+            <select name="secciones" id="secciones">
+                <option value="all">Todas las Secciones</option>
+                <!-- Iterar sobre las secciones obtenidas desde el controlador -->
+                <option th:each="seccion : ${secciones}"
+                        th:value="${seccion}"
+                        th:text="${seccion}">
+                </option>
             </select>
         </div>
         

@@ -17,5 +17,6 @@ public interface ArticuloRepository extends JpaRepository<Articulo, Integer>{
 	//contienen la cadena buscada
 	@Query("SELECT a FROM Articulo a WHERE upper(a.nombre) LIKE upper(concat('%',:cadena,'%'))")
 	List<Articulo> findByNameLike(@Param("cadena")String cadena);
-	
+	@Query("SELECT DISTINCT a.seccion FROM Articulo a")
+	List<String> listaSecciones();
 }
