@@ -13,10 +13,10 @@ INSERT INTO VALORACION (articulo_id, comentario, estrellas) VALUES (2,'Segundo C
 INSERT INTO VALORACION (articulo_id, comentario, estrellas) VALUES (3,'Primer Comentario XBX',3);
 INSERT INTO VALORACION (articulo_id, comentario, estrellas) VALUES (3,'Segundo Comentario XBX',4);
 INSERT INTO ARTICULO (nombre, codigo, seccion, categoria, subcategoria, precio, descripcion, stock, vendidos) VALUES ('PS5 Edicion digital', 'PS5 Edicion digital', 'Consolas y Videojuegos', 'Consolas', 'PS5', 450, 'Consola PS5', 3, 4);
-INSERT INTO IMAGEN (articulo_id, url) VALUES (4,'https://media.game.es/COVERV2/3D_L/183/183225.png');
+INSERT INTO IMAGEN (articulo_id, url) VALUES (4,'https://m.media-amazon.com/images/I/610RVASMtML._AC_SL1500_.jpg');
 INSERT INTO VALORACION (articulo_id, comentario, estrellas) VALUES (4,'Primer Comentario PS5 Edicion digital',5);
 INSERT INTO ARTICULO (nombre, codigo, seccion, categoria, subcategoria, precio, descripcion, stock, vendidos) VALUES ('Disgaea 5', 'D5NI', 'Consolas y Videojuegos', 'VIDEOJUEGOS', 'NSW', 50, 'Juego Disgaea 5 para NSW', 4, 3);
-INSERT INTO ARTICULO (nombre, codigo, seccion, categoria, subcategoria, precio, descripcion, stock, vendidos) VALUES ('Disgaea 5', 'D5NIPS', 'Consolas y Videojuegos', 'VIDEOJUEGOS', 'PS4', 50, 'Juego Disgaea 5 para PS4', 4, 3);
+INSERT INTO ARTICULO (nombre, codigo, seccion, categoria, subcategoria, precio, descripcion, stock, vendidos) VALUES ('Disgaea 5', 'D5NIPS', 'Consolas y Videojuegos', 'VIDEOJUEGOS', 'PS4', 50, 'Juego Disgaea 5 para PS4', 0, 3);
 INSERT INTO IMAGEN (articulo_id, url) VALUES (5,'https://m.media-amazon.com/images/I/81zCLhvOULL._AC_UF894,1000_QL80_.jpg');
 INSERT INTO IMAGEN (articulo_id, url) VALUES (6,'https://m.media-amazon.com/images/I/61g7Wbo-6NL._AC_UF894,1000_QL80_.jpg');
 INSERT INTO VALORACION (articulo_id, comentario, estrellas) VALUES (5,'Primer Comentario Disgaea 5 NSW',5);

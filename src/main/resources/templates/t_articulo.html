@@ -12,19 +12,22 @@
     <main>
         <div th:with="art=${articulo}">
             <h1 th:text="${art.nombre}">Nombre del Artículo</h1>
-            <div class="gallery" th:if="${!art.imagenes.isEmpty()}">
-                <div class="thumbnails" id="thumbnails">
-                    <div th:each="img, iterStat : ${art.imagenes}">
-                        <img th:src="@{${img.url}}" th:alt="'Imagen ' + ${iterStat.index + 1}" th:onclick="|changeImage('@{${img.url}}')|" />
+            <div class="main-content">
+                <div class="gallery" th:if="${!art.imagenes.isEmpty()}">
+                    <div class="thumbnails" id="thumbnails">
+                        <div th:each="img, iterStat : ${art.imagenes}">
+                            <img th:src="@{${img.url}}" th:alt="'Imagen ' + ${iterStat.index + 1}" th:onclick="|changeImage('@{${img.url}}')|" />
+                        </div>
+                    </div>
+                    <div class="main-image">
+                        <img th:src="@{${art.imagenes[0].url}}" alt="Imagen del artículo principal" id="mainImage" />
                     </div>
                 </div>
-                <div class="main-image">
-                    <img th:src="@{${art.imagenes[0].url}}" alt="Imagen del artículo principal" id="mainImage" />
+                <div class="product-details">
+                    <p>Precio: <span th:text="${art.precio}"></span>€</p>
+                    <p>Descripción: <span th:text="${art.descripcion}"></span></p>
+                    <button type="button" class="custom-button" th:disabled="${art.stock == 0}" th:text="${art.stock == 0 ? 'Producto agotado' : 'Añadir al carrito'}" onclick="comprarArticulo()">Añadir al carrito</button>
                 </div>
-            </div>
-            <div class="product-details">
-                <p>Precio: <span th:text="${art.precio}"></span>€</p>
-                <p>Descripción: <span th:text="${art.descripcion}"></span></p>
             </div>
             <div class="ratings">
                 <p>Valoraciones</p>
@@ -40,6 +43,11 @@
     <script>
         function changeImage(url) {
             document.getElementById('mainImage').src = url;
+        }
+        
+        function comprarArticulo() {
+            //Esto lo voy a teminar quitando
+            alert('Artículo añadido al carrito de compras.');
         }
     </script>
 </body>

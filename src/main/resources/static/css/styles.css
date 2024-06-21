@@ -99,14 +99,43 @@
         .gallery .thumbnails img:last-child {
             margin-bottom: 0;
         }
+        .main-content {
+		    display: flex;
+		    flex-wrap: nowrap; /* Asegura que los elementos no se envuelvan */
+		    align-items: flex-start; /* Alinea los elementos al inicio */
+		}
         .product-details {
-            display: flex;
-            flex-direction: column;
-            margin-left: 20px;
-        }
+		    flex: 1;
+		    min-width: 300px; /* Ajusta según el tamaño mínimo deseado */
+		    display: flex;
+		    flex-direction: column;
+		    justify-content: flex-start;
+		    padding-left: 20px; /* Espacio entre la imagen y los detalles del producto */
+		}
+
         .product-details p {
             margin: 10px 0;
         }
         .ratings {
             margin-top: 20px;
         }
+        .custom-button {
+		    background-color: #4CAF50; /* Color de fondo */
+		    border: none;             /* Sin borde */
+		    color: white;             /* Color del texto */
+		    padding: 15px 32px;       /* Espaciado interior */
+		    text-align: center;       /* Alineación del texto */
+		    text-decoration: none;    /* Sin subrayado */
+		    display: inline-block;    /* Bloque en línea */
+		    font-size: 16px;          /* Tamaño de la fuente */
+		    margin: 4px 2px;          /* Margen */
+		    cursor: pointer;          /* Cursor de mano */
+		    border-radius: 12px;      /* Bordes redondeados */
+		    transition: background-color 0.3s; /* Transición suave */
+		    max-width: 200px;         /* Ancho máximo */
+		    width: 100%;              /* Ancho al 100% para que respete el ancho máximo */
+		}
+		
+		.custom-button:hover {
+		    background-color: #45a049; /* Color de fondo al pasar el ratón */
+		}

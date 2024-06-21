@@ -125,7 +125,5 @@ public class Articulo {
 	public void setMediaValoraciones(double mediaValoraciones) {
 		this.mediaValoraciones = mediaValoraciones;
 	}
-	
-			
 
 }
