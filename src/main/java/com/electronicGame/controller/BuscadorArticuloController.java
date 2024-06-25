@@ -19,7 +19,7 @@ import com.electronicGame.entities.Valoracion;
 
 @Controller
 @RequestMapping("/buscador")
-public class BuscadorArticuloController {
+public class BuscadorArticuloController extends HeaderController{
 	public static final Logger log = LoggerFactory.getLogger(BuscadorArticuloController.class);
 	
 	@Autowired

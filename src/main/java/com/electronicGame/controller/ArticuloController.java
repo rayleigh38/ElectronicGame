@@ -15,7 +15,7 @@ import com.electronicGame.entities.Articulo;
 
 @Controller
 @RequestMapping("/articulo")
-public class ArticuloController {
+public class ArticuloController extends HeaderController{
 	public static final Logger log = LoggerFactory.getLogger(ArticuloController.class);
 	
 	@Autowired

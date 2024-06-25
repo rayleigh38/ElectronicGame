@@ -18,8 +18,9 @@ public class ServicioHeader {
 	ArticuloRepository repository;
 	
 	public List<String> obtenerSecciones() {
-		log.info("[obtenerSecciones]");
-		log.debug("[obtenerSecciones]");		
-        return repository.listaSecciones();
+        log.info("[obtenerSecciones]");
+        List<String> secciones = repository.listaSecciones();
+        log.debug("[obtenerSecciones] Secciones obtenidas: " + secciones);
+        return secciones;
     }
 }

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.electronicGame.business.ServicioValoracion;
 
 @Controller
-public class ListarValoracionController {
+public class ListarValoracionController extends HeaderController{
 
 
     @Autowired

@@ -21,7 +21,7 @@ import com.electronicGame.entities.Valoracion;
 
 @Controller
 @RequestMapping("/")
-public class IndexController {
+public class IndexController extends HeaderController{
 	public static final Logger log = LoggerFactory.getLogger(BuscadorArticuloController.class);
 	
 	@Autowired

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.electronicGame.business.ServicioImagen;
 
 @Controller
-public class ListarImagenController {
+public class ListarImagenController extends HeaderController{
 
 
     @Autowired

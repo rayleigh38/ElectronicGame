@@ -36,3 +36,4 @@ INSERT INTO IMAGEN (articulo_id, url) VALUES (8,'https://m.media-amazon.com/imag
 INSERT INTO IMAGEN (articulo_id, url) VALUES (8,'https://m.media-amazon.com/images/I/71AMY8nNu-L._AC_SL1500_.jpg');
 INSERT INTO USUARIO (username, password, email, enabled) VALUES ('admin','admin','admin@admin.com',1);
 INSERT INTO USUARIO (username, password, email, enabled) VALUES ('usuario','usuario','usuario@usario.com',1);
+INSERT INTO ARTICULO (nombre, codigo, seccion, categoria, subcategoria, precio, descripcion, stock, vendidos) VALUES ('Auriculares', 'AUI', 'Audio', 'Auriculares', 'Inalambricos', 80, 'Auriculares inalambricos con cancelacion activa de ruido', 2, 1);
