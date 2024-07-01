@@ -7,22 +7,19 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.electronicGame.entities.Articulo;
 import com.electronicGame.repositories.ArticuloRepository;
 
 @Service
-public class ServicioHeader {
-	
+public class ServicioSeccion {
 	public static final Logger log= LoggerFactory.getLogger(ServicioArticulo.class);
-
 	@Autowired
 	ArticuloRepository repository;
 	
-	public List<String> obtenerSecciones() {
-        log.info("[obtenerSecciones]");
-        List<String> listaSecciones = repository.listaSecciones();
-        log.debug("[obtenerSecciones] Secciones obtenidas: " + listaSecciones);
-        return listaSecciones;
+	public List<String> obtenerDatosSeccion(String seccion) {
+        log.info("[obtenerDatosSeccion]");
+        List<String> categorias = repository.datosCategoria(seccion);
+        log.debug("[obtenerSecciones] Datos seccion obtenidos: " + seccion);
+        return categorias;
     }
-
+	
 }

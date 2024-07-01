@@ -47,6 +47,7 @@ public class ServicioArticulo implements IServicioArticulo{
 			articulos = repository.findByNameLike(nombreArticulo);
 			
 		}catch(Exception e) {
+			log.error(e.toString());
 			throw new AdminException();
 		}
 		
@@ -61,15 +62,21 @@ public class ServicioArticulo implements IServicioArticulo{
 
 	@Override
 	public List<Articulo> getArticulo(String nombre) throws AdminException {
+		log.info("[getArticulo]");
+		log.debug("[getArticulo: "+nombre+"]");
 		return repository.findByNameLike(nombre);
 	}
 	
 	@Override
 	//Metodo que obtiene un articulo por su id
 	public Articulo getArticulo(Integer id) throws AdminException {
+		log.info("[getArticulo]");
+		log.debug("[getArticulo: "+id+"]");
 		return repository.findById(id).get();
 	}
 	public Optional<Valoracion> getValoracionArticulo(int articuloId) {
+		log.info("[getValoracionArticulo]");
+		log.debug("[getArticulo: "+articuloId+"]");
         return valoracionRepository.findByArticuloId(articuloId).stream().findFirst();
     }
 

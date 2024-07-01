@@ -23,7 +23,6 @@ public class ServicioIndex implements IServicioIndex{
 	public List<Articulo> mejorValorados() throws AdminException {
 		log.info("[mejorValorados]");
 		log.debug("[mejorValorados");
-		
 		List<Articulo> valorados = new ArrayList<Articulo>();
 		try {
 						
@@ -31,6 +30,7 @@ public class ServicioIndex implements IServicioIndex{
 			log.info(valorados.toString());
 			
 		}catch(Exception e) {
+			log.error(e.toString());
 			throw new AdminException();
 		}
 		
