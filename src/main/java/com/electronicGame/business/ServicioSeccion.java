@@ -17,9 +17,16 @@ public class ServicioSeccion {
 	
 	public List<String> obtenerDatosSeccion(String seccion) {
         log.info("[obtenerDatosSeccion]");
+        log.debug("[obtenerDatosSeccion: " + seccion+"]");
         List<String> categorias = repository.datosCategoria(seccion);
-        log.debug("[obtenerSecciones] Datos seccion obtenidos: " + seccion);
         return categorias;
     }
+	
+	public List<String> obtenerSubcategorias(String categoria){
+		log.info("[obtenerSubcategorias]");
+		log.debug("[obtenerSubcategorías: "+categoria+"]");
+		List<String> subcategorias = repository.datosSubCategoria(categoria);
+		return subcategorias;
+	}
 	
 }
