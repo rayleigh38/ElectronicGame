@@ -22,5 +22,5 @@ public interface ArticuloRepository extends JpaRepository<Articulo, Integer>{
 	@Query("SELECT DISTINCT a.categoria FROM Articulo a where a.seccion= :seccion")
 	List<String> datosCategoria(@Param("seccion")String seccion);
 	@Query("SELECT DISTINCT a.subcategoria FROM Articulo a where a.categoria=:categoria")
-	List<String> datosSubCategoria(@Param("categoria")String seccion);
+	List<Articulo> datosSubCategoria(@Param("categoria")String seccion);
 }

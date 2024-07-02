@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.electronicGame.admin.exceptions.AdminException;
 import com.electronicGame.business.ServicioSeccion;
+import com.electronicGame.entities.Articulo;
 
 @Controller
 @RequestMapping("/seccion")
@@ -29,6 +30,8 @@ public class SeccionController extends HeaderController{
         model.addAttribute("seccion",seccion);
         List<String> datosCategorias= servicio.obtenerDatosSeccion(seccion);
         model.addAttribute("categorias",datosCategorias);
+//        List<Articulo> datosSubCategoria= servicio.obtenerDatosCategoria(datosCategoria.ge);
+//        model.addAttribute("secciones",datosSubCategoria);
         return "t_seccion";
     }
 	
