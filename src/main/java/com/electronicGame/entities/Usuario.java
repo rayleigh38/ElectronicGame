@@ -5,13 +5,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="USUARIO")
+@Table(name="USERS")
 public class Usuario {
 
     @Id
     private String username;
     private String password;
-    private boolean enabled;
+    private Boolean enabled =true;
 
     public String getUsername() {
         return username;

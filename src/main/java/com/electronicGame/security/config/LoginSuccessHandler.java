@@ -42,7 +42,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 		}
 		
 		// Redirigir al usuario a una página de inicio personalizada
-        response.sendRedirect("/rutinas"); // Puedes ajustar la URL según tu configuración
+        response.sendRedirect("/"); // Puedes ajustar la URL según tu configuración
 	}
 
 }

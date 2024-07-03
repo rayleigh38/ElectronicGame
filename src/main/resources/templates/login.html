@@ -1,21 +1,35 @@
-<html>
-<head></head>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
 <body>
-   <h1>Login</h1>
-   <form name='f' action="login" method='POST'>
-      <table>
-         <tr>
-            <td>User:</td>
-            <td><input type='text' name='username' value=''></td>
-         </tr>
-         <tr>
-            <td>Password:</td>
-            <td><input type='password' name='password' /></td>
-         </tr>
-         <tr>
-            <td><input name="submit" type="submit" value="submit" /></td>
-         </tr>
-      </table>
-  </form>
+<body>
+    
+    <th:block th:replace="~{fragments/header :: header}"></th:block>
+    <th:block th:replace="~{fragments/header :: nav}"></th:block>
+    
+    <div class="cuerpoLogin">
+        <div class="inicioSesion">
+            <form th:action="@{/login}" method="post">
+                <h2>Login</h2>
+                <label for="username">
+                    <span>Usuario</span>
+                    <input type="text" id="username" name="username" required>
+                </label>
+                <label for="password">
+                    <span>Contraseña</span>
+                    <input type="password" name="password" required>
+                </label>
+                <input type="submit" value="Iniciar Sesión">
+                <a th:href="@{/register}"><input type="button" value="Registrate"></a>
+            </form>
+        </div>
+    </div>
+    <!-- FOOTER -->
+    <th:block th:replace="~{fragments/footer :: footer}"></th:block>
 </body>
 </html>

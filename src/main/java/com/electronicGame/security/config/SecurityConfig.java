@@ -32,36 +32,36 @@ public class SecurityConfig {
     }
 
     //Permite todo porque no funciona la seguridad
-    @Bean public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{ 
-    	log.info("securityFilterChain");
-    		  
-    	http .authorizeHttpRequests(authz -> authz 	.anyRequest().permitAll())
-    	.formLogin((form) -> form.loginPage("/login")
-    			  .successHandler(success)
-    			  .failureUrl("/loginError")
-    			  .permitAll()); http.logout((logout) ->
-    			  logout.permitAll());
-    	http.csrf(csrf -> csrf.ignoringRequestMatchers("/h2-console/**"));
-    	http.headers(headers -> headers.frameOptions().sameOrigin()); return
-    	http.build(); 
-    	}
+//    @Bean public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{ 
+//    	log.info("securityFilterChain");
+//    		  
+//    	http .authorizeHttpRequests(authz -> authz 	.anyRequest().permitAll())
+//    	.formLogin((form) -> form.loginPage("/login")
+//    			  .successHandler(success)
+//    			  .failureUrl("/loginError")
+//    			  .permitAll()); http.logout((logout) ->
+//    			  logout.permitAll());
+//    	http.csrf(csrf -> csrf.ignoringRequestMatchers("/h2-console/**"));
+//    	http.headers(headers -> headers.frameOptions().sameOrigin());
+//    	return http.build(); 
+//    	}
     
     
-    //Seguridad que no me funciona
+    //Seguridad
 	
-//	  @Bean public SecurityFilterChain securityFilterChain(HttpSecurity http)
-//	  throws Exception{ log.info("securityFilterChain");
-//	  
-//	  http .authorizeHttpRequests(authz -> authz .requestMatchers(HttpMethod.GET,
-//	  "/login","/","/css/**", "/images/**",
-//	  "/h2-console/**","/register").permitAll() .requestMatchers(HttpMethod.POST,
-//	  "/register").permitAll() .requestMatchers("/admin/**").hasRole("ADMIN")
-//	  .requestMatchers("/carrito").authenticated() .anyRequest().authenticated())
-//	  .formLogin((form) -> form.loginPage("/login") .successHandler(success)
-//	  .failureUrl("/loginError") .permitAll()); http.logout((logout) ->
-//	  logout.permitAll()); http.csrf(csrf ->
-//	  csrf.ignoringRequestMatchers("/h2-console/**")); http.headers(headers ->
-//	  headers.frameOptions().sameOrigin()); return http.build(); }
+	  @Bean public SecurityFilterChain securityFilterChain(HttpSecurity http)
+	  throws Exception{ log.info("securityFilterChain");
+	  
+	  http .authorizeHttpRequests(authz -> authz .requestMatchers(HttpMethod.GET,
+	  "/login","/","/css/**", "/images/**",
+	  "/h2-console/**","/register").permitAll() .requestMatchers(HttpMethod.POST,
+	  "/register").permitAll() .requestMatchers("/admin/**").hasRole("ADMIN")
+	  .requestMatchers("/carrito").authenticated() .anyRequest().authenticated())
+	  .formLogin((form) -> form.loginPage("/login") .successHandler(success)
+	  .failureUrl("/loginError") .permitAll()); http.logout((logout) ->
+	  logout.permitAll()); http.csrf(csrf ->
+	  csrf.ignoringRequestMatchers("/h2-console/**")); http.headers(headers ->
+	  headers.frameOptions().sameOrigin()); return http.build(); }
 	 
 
     @Bean

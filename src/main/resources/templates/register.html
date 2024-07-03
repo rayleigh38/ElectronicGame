@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <th:block th:replace="~{fragments/header :: header}"></th:block>
+    <th:block th:replace="~{fragments/header :: nav}"></th:block>
+    
+    <div class="cuerpoLogin">
+        <div class="registro">
+            <form action="#" th:action="@{/register}" method="post" >
+                <h2>Registro</h2>
+                <label for="username"><span>Usuario</span> <input type="text" id="username" name="username" required></label>
+				<label for="password"><span>Contraseña</span> <input type="password" id="password" name="password" required></label>
+				<input type="submit" value="Registrar">            
+            </form>
+        </div>
+    </div>
+    <!-- FOOTER -->
+	<th:block th:replace="~{fragments/footer :: footer}"></th:block>
+</body>
+</html>

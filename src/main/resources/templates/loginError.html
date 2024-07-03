@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login error</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+	<th:block th:replace="~{fragments/header :: header}"></th:block>
+    <th:block th:replace="~{fragments/header :: nav}"></th:block>
+    
+	<div class="cuerpoLogin">
+		<div class="inicioSesion">
+			<form th:action="@{/login}" method="post">
+				<h2>Login error</h2>
+				<label for="username"><span>usuario</span> <input
+					type="text" id="username" name="username" required>
+				</label> <label for="password"><span>contraseña</span> 
+					<input type="password" name="password" required>
+				</label><input type="submit" value="Iniciar Sesión">
+			</form>
+		</div>
+	</div>
+
+	</div>
+	<div>ERROR</div>
+	<!-- FOOTER -->
+	<th:block th:replace="~{fragments/footer :: footer}"></th:block>
+</body>
+</html>
