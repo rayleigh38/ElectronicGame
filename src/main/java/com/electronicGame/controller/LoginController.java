@@ -10,21 +10,21 @@ public class LoginController {
 	Logger log = LoggerFactory.getLogger(LoginController.class);
 
 	@GetMapping("/logout")
-    public String irse() {
-		log.info("irse");
+    public String logout() {
+		log.info("logout");
 		
         return "index";
     }
 	@GetMapping("/loginError")
-    public String daerror() {
-		log.info("daerror");
+    public String error() {
+		log.info("login error");
 		
         return "loginError";
     }
 	
 	@GetMapping("/login")
-    public String venirse() {
-		log.info("venirse");
+    public String login() {
+		log.info("login");
 		
         return "login";
     }
