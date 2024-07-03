@@ -34,6 +34,8 @@ INSERT INTO VALORACION (articulo_id, comentario, estrellas) VALUES (7,'Segundo C
 INSERT INTO IMAGEN (articulo_id, url) VALUES (8,'https://m.media-amazon.com/images/I/71PJPNCQE3L._AC_SL1500_.jpg');
 INSERT INTO IMAGEN (articulo_id, url) VALUES (8,'https://m.media-amazon.com/images/I/71FO8tlrVtL._AC_SL1500_.jpg');
 INSERT INTO IMAGEN (articulo_id, url) VALUES (8,'https://m.media-amazon.com/images/I/71AMY8nNu-L._AC_SL1500_.jpg');
-INSERT INTO USUARIO (username, password, email, enabled) VALUES ('admin','admin','admin@admin.com',1);
-INSERT INTO USUARIO (username, password, email, enabled) VALUES ('usuario','usuario','usuario@usario.com',1);
+INSERT INTO USUARIO (username, password, enabled) VALUES ('admin','admin',1);
+INSERT INTO USUARIO (username, password, enabled) VALUES ('usuario','usuario',1);
+INSERT INTO AUTHORITIES(username,authority) VALUES ('admin','ROLE_ADMIN');
+INSERT INTO AUTHORITIES(username,authority) VALUES ('usuario','ROLE_USUARIO');
 INSERT INTO ARTICULO (nombre, codigo, seccion, categoria, subcategoria, precio, descripcion, stock, vendidos) VALUES ('Auriculares', 'AUI', 'Audio', 'Auriculares', 'Inalambricos', 80, 'Auriculares inalambricos con cancelacion activa de ruido', 2, 1);
