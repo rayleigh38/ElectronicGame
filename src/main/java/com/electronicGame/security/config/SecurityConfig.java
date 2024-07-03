@@ -25,7 +25,7 @@ public class SecurityConfig {
 	
 	@Autowired
 	private AuthenticationSuccessHandler success;
-
+	
     @Bean
     public UserDetailsManager userDetailsService(DataSource dataSource) {
         return new JdbcUserDetailsManager(dataSource);
@@ -53,17 +53,28 @@ public class SecurityConfig {
 	  throws Exception{ log.info("securityFilterChain");
 	  
 	  http .authorizeHttpRequests(authz -> authz .requestMatchers(HttpMethod.GET,
-	  "/login","/","/css/**", "/images/**",
-	  "/h2-console/**","/register").permitAll() .requestMatchers(HttpMethod.POST,
-	  "/register").permitAll() .requestMatchers("/admin/**").hasRole("ADMIN")
-	  .requestMatchers("/carrito").authenticated() .anyRequest().authenticated())
-	  .formLogin((form) -> form.loginPage("/login") .successHandler(success)
-	  .failureUrl("/loginError") .permitAll()); http.logout((logout) ->
-	  logout.permitAll()); http.csrf(csrf ->
-	  csrf.ignoringRequestMatchers("/h2-console/**")); http.headers(headers ->
-	  headers.frameOptions().sameOrigin()); return http.build(); }
-	 
-
+	  "/login","/","/css/**", "/images/**","/h2-console/**","/register").permitAll()
+			  .requestMatchers(HttpMethod.POST,"/register").permitAll() 
+			  .requestMatchers("/admin/**").hasRole("ADMIN")
+			  .requestMatchers("/carrito").authenticated() .anyRequest().authenticated())
+	  .formLogin((form) -> form
+			  .loginPage("/login")
+			  .successHandler(success)
+			  .failureUrl("/loginError")
+			  .permitAll())
+		      .logout()
+		      .logoutUrl("/logout")
+		      .logoutSuccessUrl("/")
+		      .invalidateHttpSession(true) // Invalida la sesión HTTP
+		      .deleteCookies("JSESSIONID") // Elimina las cookies
+		      .permitAll()
+		  .and()
+		  .csrf().ignoringRequestMatchers("/h2-console/**")
+		  .and()
+		  .headers().frameOptions().sameOrigin();
+	  return http.build();
+		}
+	  
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

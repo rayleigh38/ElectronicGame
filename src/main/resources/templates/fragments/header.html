@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,8 +28,15 @@
         </div>
         
         <div class="user-options">
-            <a href="/login">Iniciar Sesión</a>
-            <a href="/register">Registrarse</a>
+            <div th:if="${username != null}">
+                <!-- Mostrar enlace para cerrar sesión si está autenticado -->
+                <a href="/logout" th:text="'Cerrar sesión (' + ${username} + ')'"></a>
+            </div>
+            <div th:if="${username == null}">
+                <!-- Mostrar "Iniciar Sesión" si no está autenticado -->
+                <a href="/login">Iniciar Sesión</a>
+                <a href="/register">Registrarse</a>
+            </div>
             <a href="/cart">Carrito</a>
         </div>
     </header>
