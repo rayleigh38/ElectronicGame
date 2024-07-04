@@ -30,7 +30,7 @@ public class LoginController {
         // Redirige a la pagina de inicio
         try {
             response.sendRedirect("/"); 
-            return null;  // Explicitly return null to prevent further processing
+            return null;
         } catch (IOException e) {
             log.error("Error during logout redirection", e);
             throw new AdminException();
